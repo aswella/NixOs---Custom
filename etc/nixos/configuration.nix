@@ -66,6 +66,13 @@
             extraGroups = ["networkingmanager" "wheel" "video" "audio"];
             initialPassword = "root"; #WHO USES THIS CHANGE TO NEW PASS
     };
+
+    services.xserver = {
+      layout = "us,ru";
+      xkbVariant = "";
+      # This option allows switching between layouts with Caps Lock
+      xkbOptions = "grp:caps_toggle";
+    };
   
     system.stateVersion = "25.11";
 }
