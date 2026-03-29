@@ -53,9 +53,9 @@
   };
 
 
-  # Environment variables for Vulkan to recognize both drivers
+    # Environment variables for Vulkan
   environment.variables = {
-    VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json:/run/opengl-driver/share/vulkan/icd.d/i>
+    VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json:/run/opengl-driver/share/vulkan/icd.d/intel_icd.x86_64.json";
   };
 
   # --- DESKTOP ENVIRONMENT (LXQT) ---
