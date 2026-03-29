@@ -2,6 +2,7 @@
 { config, lib, pkgs, ... }:
 
 {
+
   imports = [ ./hardware-configuration.nix ];
 
   # --- BOOTLOADER AND KERNEL ---
@@ -97,6 +98,14 @@
     nvidia.acceptLicense = true;
   };
 
+  services.flatpak.enable = true;
+    systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+    	flatpak remote-add --if-not-exists flathub https://dl.flathub.org
+    '';
+  };
   programs.steam.enable = true;
   programs.firefox.enable = true;
   programs.gamemode.enable = true; # Optimizes CPU/GPU priorities for gaming
@@ -138,3 +147,4 @@
   # --- SYSTEM SERVICES ---
   services.openssh.enable = true;
   system.stateVersion = "24.11"; 
+}
