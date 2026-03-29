@@ -64,6 +64,10 @@
     desktopManager.lxqt.enable = true;
     displayManager.lightdm.enable = true;    
     
+displayManager.setupCommands = ''
+      ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --mode 1920x1080 --output LVDS-1 --scale-from 1920x1080 --same-as HDMI-1
+    '';
+
     # Keyboard settings: English and Russian layouts
     # Switching shortcut: Caps Lock
     xkb = {
